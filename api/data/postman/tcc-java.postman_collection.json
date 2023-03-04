@@ -1,0 +1,469 @@
+{
+	"info": {
+		"_postman_id": "a12c142a-0061-4b48-a609-7bcbed030bc3",
+		"name": "Tcc Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21448979"
+	},
+	"item": [
+		{
+			"name": "publicações",
+			"item": [
+				{
+					"name": "listar publicações",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/publicacoes?sort=dataCriacao,desc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"publicacoes"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "dataCriacao,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalhar publicacao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/publicacoes/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"publicacoes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incluir publicação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"privado\": true,\r\n    \"titulo\": \"Arte Conceitual\",\r\n    \"imagem\": \"https://picsum.photos/300\",\r\n    \"descricao\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/publicacoes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"publicacoes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "curtir publicacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/publicacoes/2/curtidas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"publicacoes",
+								"2",
+								"curtidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adicionar comentário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mensagem\": \"Mensagem do novo comentário.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/publicacoes/2/comentarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"publicacoes",
+								"2",
+								"comentarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remover curtida",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/publicacoes/2/curtidas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"publicacoes",
+								"2",
+								"curtidas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Perfil",
+			"item": [
+				{
+					"name": "amizades",
+					"item": [
+						{
+							"name": "listar pedidos de amizade",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/perfil/amizades/pedidos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"perfil",
+										"amizades",
+										"pedidos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "solicitar amizade",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/perfil/1/amizades",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"perfil",
+										"1",
+										"amizades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "aceitar amizade",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/perfil/3/amizades",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"perfil",
+										"3",
+										"amizades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cancelar amizade",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/perfil/2/amizades",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"perfil",
+										"2",
+										"amizades"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pesquisar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/perfil/pesquisar?texto=teste",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"perfil",
+								"pesquisar"
+							],
+							"query": [
+								{
+									"key": "texto",
+									"value": "teste"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar amigos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/perfil/amizades?texto=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"perfil",
+								"amizades"
+							],
+							"query": [
+								{
+									"key": "texto",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar perfil",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Novo Nome\",\r\n    \"imagemPerfil\": \"https://i.pravatar.cc/300\",\r\n    \"apelido\": \"novo_apelido\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/perfil",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"perfil"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalhar usuário",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/perfil/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"perfil",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detalhar usuario autenticado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/perfil",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"perfil"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "incluir usuário [publico]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Teste 2\",\n    \"email\": \"teste.2@cwi.com.br\",\n    \"senha\": \"123456\",\n    \"dataNascimento\": \"2003-01-15\",\n    \"apelido\": \"usuario_teste\",\n    \"imagemPerfil\": \"https://i.pravatar.cc/300\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login [publico]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "teste@cwi.com.br",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout [publico]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
