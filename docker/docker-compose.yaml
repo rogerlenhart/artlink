@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: artlink-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456 
+      POSTGRES_DB: artlink
+    volumes:
+      - db-data:/var/lib/postgres
+      - ../api/data/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    ports:
+      - '5432:5432'
+    networks:
+      - bridge
+
+  api:
+    container_name: artlink-api
+    build:
+      context: ../api
+      dockerfile: ../api/Dockerfile
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/artlink
+    ports:
+      - '8080:8080'
+    networks:
+      - bridge
+    depends_on:
+      - postgres
+
+  app:
+    container_name: artlink-app
+    build:
+      context: ../app
+      dockerfile: ../app/Dockerfile
+    ports:
+      - '3000:3000'
+    networks:
+      - bridge
+    depends_on:
+      - postgres
+      - api
+
+volumes:
+  db-data:
+
+networks:
+  bridge:

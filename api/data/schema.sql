@@ -69,4 +69,57 @@ CREATE TABLE amizade (
 	CONSTRAINT fk_amizade_usuario FOREIGN KEY (usuario_id) REFERENCES usuario,
 	CONSTRAINT fk_amizade_amigo FOREIGN KEY (amigo_id) REFERENCES usuario,
 	CONSTRAINT uk_amizade UNIQUE (usuario_id, amigo_id)
-)
+);
+
+\c artlink;
+
+INSERT INTO usuario (nome, email, apelido, data_nascimento, senha, imagem_perfil, ativo)
+VALUES ('João da Silva', 'joao.silva@example.com', 'joao', '1990-01-01', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pravatar.cc/300?img=10', true);
+
+INSERT INTO usuario (nome, email, apelido, data_nascimento, senha, imagem_perfil, ativo)
+VALUES ('Maria Santos', 'maria.santos@example.com', 'maria', '1985-02-15', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pravatar.cc/300?img=2', true);
+
+INSERT INTO usuario (nome, email, apelido, data_nascimento, senha, imagem_perfil, ativo)
+VALUES ('Pedro Oliveira', 'pedro.oliveira@example.com', 'pedro', '1995-08-21', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pravatar.cc/300?img=8', true);
+
+INSERT INTO usuario (nome, email, apelido, data_nascimento, senha, imagem_perfil, ativo)
+VALUES ('Ana Paula Costa', 'ana.costa@example.com', 'ana', '1980-06-12', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pravatar.cc/300?img=4', true);
+
+INSERT INTO usuario (nome, email, apelido, data_nascimento, senha, imagem_perfil, ativo)
+VALUES ('Lucas Santos', 'lucas.santos@example.com', 'lucas', '2000-03-10', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pravatar.cc/300?img=5', true);
+
+INSERT INTO usuario (nome, email, apelido, data_nascimento, senha, imagem_perfil, ativo)
+VALUES ('Julia Oliveira', 'julia.oliveira@example.com', 'julia', '1998-11-07', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pravatar.cc/300?img=7', true);
+
+insert into permissao (funcao, usuario_id) values ('USUARIO', 1);
+insert into permissao (funcao, usuario_id) values ('USUARIO', 2);
+insert into permissao (funcao, usuario_id) values ('USUARIO', 3);
+insert into permissao (funcao, usuario_id) values ('USUARIO', 4);
+insert into permissao (funcao, usuario_id) values ('USUARIO', 5);
+insert into permissao (funcao, usuario_id) values ('USUARIO', 6);
+
+INSERT INTO publicacao (autor_id, titulo, descricao, imagem, data_criacao, privado) VALUES
+(1, 'Lorem ipsum 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/rOyJghs.jpeg', '2022-03-04 14:27:30', false),
+(2, 'Lorem ipsum 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/0wpbsLp.jpeg', '2022-06-08 08:12:45', true),
+(3, 'Lorem ipsum 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/Z873mJO.jpeg', '2022-07-19 17:33:22', false),
+(4, 'Lorem ipsum 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/P0Gu3lf.jpeg', '2023-01-02 09:55:11', false),
+(5, 'Lorem ipsum 5', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/PMBOoBk.jpeg', '2022-11-14 21:08:09', true),
+(6, 'Lorem ipsum 6', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/TGRkBcL.jpeg', '2023-02-07 12:45:34', false),
+(1, 'Lorem ipsum 7', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/GfLd3KT.jpeg', '2022-12-26 19:02:16', false),
+(2, 'Lorem ipsum 8', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/oiIaLLK.jpeg', '2022-10-01 06:41:27', true),
+(3, 'Lorem ipsum 9', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/32JGfDn.jpeg', '2022-09-09 11:22:14', true),
+(4, 'Lorem ipsum 10', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/Ksf8LJo.jpeg', '2023-02-20 15:16:50', false),
+(5, 'Lorem ipsum 11', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/XxPHpN9.jpeg', '2022-05-05 23:59:59', false),
+(4, 'Lorem ipsum 12', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/04ymvUp.jpeg', '2022-08-13 18:37:42', false),
+(1, 'Lorem ipsum 13', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/c76x26l.jpeg', '2022-11-27 07:30:10', true),
+(2, 'Lorem ipsum 14', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/L8oXWLN.jpeg', '2022-04-12 13:48:56', false),
+(3, 'Lorem ipsum 15', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/tttHnI6.jpeg', '2022-07-03 09:27:01', true),
+(1, 'Lorem ipsum 16', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/KMh2p2t.jpeg', '2022-12-10 22:14:32', false),
+(5, 'Lorem ipsum 17', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/TKEvuJz.jpeg', '2023-01-21 04:20:18', false),
+(2, 'Lorem ipsum 18', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/JQ8Idhh.jpeg', '2022-06-30 16:55:47', false),
+(3, 'Lorem ipsum 19', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/qS1MctI.jpeg', '2022-07-03 09:27:01', true),
+(4, 'Lorem ipsum 20', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/qZkExEN.jpeg', '2022-12-10 22:14:32', false),
+(3, 'Lorem ipsum 21', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/1s2LMHW.jpeg', '2023-01-21 04:20:18', false),
+(1, 'Lorem ipsum 22', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/XuTupQt.jpeg', '2022-06-30 16:55:47', false),
+(5, 'Lorem ipsum 23', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/9j9zEho.jpeg', '2023-01-21 04:20:18', false),
+(6, 'Lorem ipsum 24', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'https://i.imgur.com/lBLQtCl.jpeg', '2022-06-30 16:55:47', false)
